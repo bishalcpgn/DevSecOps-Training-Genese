@@ -1,7 +1,5 @@
 # Genese Solution Website Clone
 
-This project is a cloned version of the Genese Solution website, built with React and designed to demonstrate modern web development practices, including responsive design and client-side routing.
-
 **This website serves as a demo project for a DevSecOps training program.**
 
 ## Project Structure
@@ -67,6 +65,12 @@ npm run build
 
 This will generate optimized static assets in the `dist/` directory.
 
+### Previewing compiled project from `dist/` directory.
+
+```bash
+npm run preview
+```
+
 ## Docker Deployment
 
 This project includes a `Dockerfile` for containerization using a multi-stage build process. This allows you to build a lightweight Docker image for deployment.
@@ -88,6 +92,19 @@ docker run -p 80:80 genese-solution-clone
 ```
 
 The application will be accessible via your Docker host's IP address on port 80 (e.g., `http://localhost/`).
+
+### Stop and remove the genese-solution-clone container:
+
+```bash
+docker stop $(docker ps -q --filter ancestor=genese-solution-clone)
+docker rm $(docker ps -a -q --filter ancestor=genese-solution-clone)
+```
+
+### Remove the genese-solution-clone image:
+
+```bash
+docker rmi genese-solution-clone
+```
 
 ## License
 
