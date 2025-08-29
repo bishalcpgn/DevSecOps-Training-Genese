@@ -1,0 +1,24 @@
+[
+  {
+    "id": "1",
+    "title": "Ensuring E-learning Excellence: Code Rush’s Secure Infrastructure with AWS",
+    "date": "Mar 11, 2025",
+    "summary": "Background: Code Rush specializes in building robust talent pipelines for different IT firms by offering data-driven talent generation and recruitment solutions. By putting the IT firms in touch with top-tier IT talent and industry leaders in recruiting, our...",
+    "content": "Full content of blog post 1..."
+  },
+  {
+    "id": "2",
+    "title": "Financial Implications of a Security Breach",
+    "date": "Feb 13, 2025",
+    "summary": "With increasingly increasing institutions\" dependency on technology, the chances of data breaches have increased tremendously. A data breach occurs when unauthorized individuals gain access to sensitive, confidential, or personal information. These breaches can...",
+    "content": "Full content of blog post 2..."
+  },
+  {
+    "id": "3",
+    "title": "Optimizing Performance and Cost Using AWS Compute Savings Plans",
+    "date": "Feb 5, 2025",
+    "summary": "Managing cloud costs effectively is a key aspect of leveraging AWS services to their full potential. With various payment options, AWS provides flexibility for organizations to optimize their spending. However, for businesses seeking long-term cost efficiency and...",
+    "content": "Full content of blog post 3..."
+  }
+]
+

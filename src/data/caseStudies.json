@@ -1,0 +1,24 @@
+[
+  {
+    "id": "1",
+    "title": "Cloud Migration for a Leading Financial Institution",
+    "date": "Jan 20, 2025",
+    "summary": "Successfully migrated a legacy on-premise infrastructure to a secure and scalable cloud environment, resulting in significant cost savings and improved performance.",
+    "content": "Full content of case study 1..."
+  },
+  {
+    "id": "2",
+    "title": "Implementing AI-Powered Cybersecurity for a Healthcare Provider",
+    "date": "Dec 10, 2024",
+    "summary": "Deployed an advanced AI-driven cybersecurity solution to protect sensitive patient data, enhancing threat detection and response capabilities.",
+    "content": "Full content of case study 2..."
+  },
+  {
+    "id": "3",
+    "title": "Digital Transformation for a Global Logistics Company",
+    "date": "Nov 15, 2024",
+    "summary": "Orchestrated a comprehensive digital transformation initiative, integrating new technologies and optimizing workflows to improve operational efficiency and customer satisfaction.",
+    "content": "Full content of case study 3..."
+  }
+]
+
