@@ -23,7 +23,7 @@ steps:
     SonarQube: 'SonarCloud-Connection'
     organization: 'devsecops-genese'
     scannerMode: 'cli'
-    cliScannerVersion: '3.4.1' #same as extension version
+    cliScannerVersion: '7.2.0.5079'
     configMode: 'manual'
     cliProjectKey: 'DevSecOps-Genese_genese_demo'
     cliProjectName: 'genese_demo'
