@@ -18,11 +18,26 @@ steps:
     customCommand: 'install --legacy-peer-deps'
   displayName: 'Install dependencies'
 
+- task: SonarCloudPrepare@3
+  inputs:
+    SonarQube: 'SonarCloud-Connection'
+    organization: 'devsecops-genese'
+    scannerMode: 'cli'
+    cliScannerVersion: '3.4.1' #same as extension version
+    configMode: 'manual'
+    cliProjectKey: 'DevSecOps-Genese_genese_demo'
+    cliProjectName: 'genese_demo'
+    cliSources: '.'
+
 - task: Npm@1
   inputs:
     command: 'custom'
     customCommand: 'run build'
   displayName: 'Build application'
+
+- task: SonarCloudAnalyze@3
+  inputs:
+    jdkversion: 'JAVA_HOME_17_X64'
 
 - task: ArchiveFiles@2
   inputs:
