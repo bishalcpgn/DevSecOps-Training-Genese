@@ -28,6 +28,7 @@ steps:
     cliProjectKey: 'DevSecOps-Genese_genese_demo'
     cliProjectName: 'genese_demo'
     cliSources: '.'
+  displayName: 'Prepare SonarCloud Connections'
 
 - task: Npm@1
   inputs:
@@ -38,6 +39,7 @@ steps:
 - task: SonarCloudAnalyze@3
   inputs:
     jdkversion: 'JAVA_HOME_17_X64'
+  displayName: 'Run Sonarloud Analysis'
 
 - task: ArchiveFiles@2
   inputs:
