@@ -23,6 +23,15 @@ steps:
     customCommand: 'install --legacy-peer-deps'
   displayName: 'Install dependencies'
 
+- task: dependency-check-build-task@6
+  inputs:
+    projectName: 'genese_demo'
+    scanPath: '**/*'
+    format: 'HTML'
+    uploadReports: true
+    failOnCVSS: '8'
+  displayName: 'SCA Checks'
+
 - task: SonarCloudPrepare@3
   inputs:
     SonarQube: 'SonarCloud-Connection'
