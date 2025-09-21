@@ -74,3 +74,8 @@ steps:
     ArtifactName: 'drop'
     publishLocation: 'Container'
   displayName: 'Publish artifacts'
+
+# Docker scan template included as steps
+- template: docker-scan-template.yml
+  parameters:
+    imageName: 'genese-demo'
