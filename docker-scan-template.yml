@@ -1,11 +1,27 @@
-# This template defines reusable steps for building and scanning a Docker image
 parameters:
-  imageName: 'genese-demo'   # Default value if none provided
+  imageName: 'genese-demo'
+  buildId: '$(Build.BuildId)'
 
 steps:
-- script: |
-    echo "Building Docker image ${{ parameters.imageName }}:$(Build.BuildId)"
-    docker build -t ${{ parameters.imageName }}:$(Build.BuildId) .
-    echo "Scanning Docker image ${{ parameters.imageName }}:$(Build.BuildId)"
-    docker scan ${{ parameters.imageName }}:$(Build.BuildId)
-  displayName: 'Build and Scan Docker Image'
+  - script: |
+      echo "Building Docker image..."
+      docker build -t ${{ parameters.imageName }}:${{ parameters.buildId }} .
+
+      echo "Installing Trivy..."
+      curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh
+
+      echo "Scanning Docker image with Trivy..."
+      trivy image \
+        --format json \
+        --output $(Build.ArtifactStagingDirectory)/trivy-report.json \
+        --severity HIGH,CRITICAL \
+        --exit-code 0 \
+        ${{ parameters.imageName }}:${{ parameters.buildId }}
+    displayName: 'Build and Scan Docker Image'
+
+  - task: PublishBuildArtifacts@1
+    inputs:
+      PathtoPublish: '$(Build.ArtifactStagingDirectory)/trivy-report.json'
+      ArtifactName: 'docker-scan-report'
+      publishLocation: 'Container'
+    displayName: 'Publish Docker Scan Report'
