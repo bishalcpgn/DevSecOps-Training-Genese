@@ -12,13 +12,13 @@ steps:
       sudo mv ./bin/trivy /usr/local/bin/
 
       echo "Fetching Trivy HTML template..."
-    wget -O html.tpl https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/html.tpl
-      
+      wget -O html.tpl https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/html.tpl
+
       echo "Scanning Docker image with Trivy..."
       trivy image \
         --format template \
-        --template "@contrib/html.tpl" \
-        --output $(Build.ArtifactStagingDirectory)/trivy-report.json \
+        --template "@html.tpl" \
+        --output $(Build.ArtifactStagingDirectory)/trivy-report.html \
         --severity HIGH,CRITICAL \
         --exit-code 0 \
         ${{ parameters.imageName }}:${{ parameters.buildId }}
@@ -26,7 +26,7 @@ steps:
 
   - task: PublishBuildArtifacts@1
     inputs:
-      PathtoPublish: '$(Build.ArtifactStagingDirectory)/trivy-report.json'
+      PathtoPublish: '$(Build.ArtifactStagingDirectory)/trivy-report.html'
       ArtifactName: 'docker-scan-report'
       publishLocation: 'Container'
     displayName: 'Publish Docker Scan Report'
