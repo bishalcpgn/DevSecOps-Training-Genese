@@ -4,6 +4,9 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
+variables:
+- group: security-scan
+
 steps:
 
 # full clone is required for Source Control info [blame, autoassign]
@@ -30,6 +33,7 @@ steps:
     format: 'HTML'
     uploadReports: true
     failOnCVSS: '8'
+    nvdApiKey: '$(SCA_NVD_API_KEY)'
   displayName: 'SCA Checks'
 
 - task: SonarCloudPrepare@3
