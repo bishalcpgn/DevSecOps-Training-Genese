@@ -9,7 +9,8 @@ steps:
 
       echo "Installing Trivy..."
       curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh
-
+      sudo mv ./bin/trivy /usr/local/bin/
+      
       echo "Scanning Docker image with Trivy..."
       trivy image \
         --format json \
